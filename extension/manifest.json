@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Skribbl Guesser",
+  "version": "0.1.0",
+  "description": "Shows likely answers for a Skribbl drawing. Clicking a word fills the chat box and does not send it.",
+  "host_permissions": ["https://skribbl.io/*", "http://127.0.0.1:8765/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://skribbl.io/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
